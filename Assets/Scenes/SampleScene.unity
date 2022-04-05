@@ -638,8 +638,8 @@ Rigidbody:
   m_GameObject: {fileID: 797246280}
   serializedVersion: 2
   m_Mass: 0.4
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.5
+  m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -678,7 +678,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6ca138a6796918b408a63a0ea81f2ec3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -770,9 +770,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5277a150d87eb954e86711f773a61cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backSpeed: 4
   force: 13
-  rotateOrigin: {fileID: 6700457897262717534}
+  rotateOrigin: {fileID: 4091347957836382110}
   collider: {fileID: 832279893}
+  WhiteBall: {fileID: 1056654217}
 --- !u!54 &832279892
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -932,7 +934,7 @@ GameObject:
   - component: {fileID: 1056654215}
   - component: {fileID: 1056654218}
   - component: {fileID: 1056654219}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BolaBranca
   m_TagString: Branca
   m_Icon: {fileID: 0}
@@ -1013,8 +1015,8 @@ Rigidbody:
   m_GameObject: {fileID: 1056654213}
   serializedVersion: 2
   m_Mass: 0.4
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.5
+  m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0

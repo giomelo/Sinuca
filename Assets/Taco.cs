@@ -9,25 +9,42 @@ public class Taco : MonoBehaviour
     private float posVariation = 4f;
     private float t = 0;
     private bool isHolding = false;
-    private float backSpeed = 6f;
+    public float backSpeed = 4f;
     private bool canRotate = true;
     private bool setPos = false;
     private bool canMove = true;
     public float force = 13f;
-    public GameObject rotateOrigin;
+    public Transform rotateOrigin;
     public Collider collider;
+    private float initialForce;
+    Rigidbody body;
 
-    Rigidbody body; 
+    public Transform WhiteBall;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        initialForce = force;
         minPos = transform.localPosition.z;
         t = 0;
+        body = WhiteBall.GetComponent<Rigidbody>();
         maxPos = minPos - posVariation;
     }
 
-    void Update () 
-     {  
+    private void CheckifBallStoped()
+    {
+        if (canMove) return;
+        if (body.velocity.magnitude <= 0.1)
+        {
+            Debug.LogWarning("BallStoped");
+            ResetTaco();
+        }
+    }
+
+    void Update ()
+    {
+        CheckifBallStoped();
+         
+         
          if(canRotate)
          {
             var moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
@@ -46,77 +63,95 @@ public class Taco : MonoBehaviour
             }
          }
         
-        //acertar bola
-        if(Input.GetMouseButton(0) && canMove)
-        {
- 
-            isHolding = true;
-            canRotate = false;
-        }else
-        {
-            isHolding = false;
-        }
+         //acertar bola
+         if(Input.GetMouseButton(0) && canMove)
+         {
+             isHolding = true;
+             canRotate = false;
+         }else
+         {
+             isHolding = false;
+         }
         
 
-        //mover taco
-        if(isHolding)
-        {
-            if(!setPos)
-            {
-                minPos = transform.localPosition.z;
-                maxPos = minPos - posVariation;
-                setPos = true;
-            }
-            //Debug.Log(maxPos);
-            //Debug.Log(Mathf.Abs(transform.localPosition.z - maxPos));
-            if(transform.localPosition.z - maxPos >= 0)
-            {
-                transform.Translate(0,0, -backSpeed * Time.deltaTime);
-                t += Time.deltaTime;
-                Debug.Log(t);
-            }
-            // Vector3 teste = transform.position;
-            //transform.localPosition = Vector3.Lerp(teste, new Vector3(transform.localPosition.x, transform.localPosition.y,maxPos), Time.deltaTime * backSpeed);
+         //mover taco
+         if(isHolding)
+         {
+             if(!setPos)
+             {
+                 //minPos = transform.localPosition.z;
+                 setPos = true;
+             }
+             //Debug.Log(maxPos);
+             //Debug.Log(Mathf.Abs(transform.localPosition.z - maxPos));
+             if(transform.localPosition.z - maxPos >= 0)
+             {
+                 transform.Translate(0,0, -backSpeed * Time.deltaTime);
+                 t += Time.deltaTime;
+             }
+             // Vector3 teste = transform.position;
+             //transform.localPosition = Vector3.Lerp(teste, new Vector3(transform.localPosition.x, transform.localPosition.y,maxPos), Time.deltaTime * backSpeed);
             
-        }else
+         }else
+         {
+             if(setPos)
+             {
+                 if(transform.localPosition.z - (minPos + 2) <=0)
+                 {
+                     transform.Translate(0,0, + backSpeed * Time.deltaTime * 5);
+
+                 }else
+                 {
+                     canMove = false;
+                     //canRotate = true;
+                     setPos = false;
+                     //t = 0;
+                 }
+             }
+         }
+
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if(other.transform.CompareTag("Branca"))
         {
-            if(setPos)
-            {
-                if(transform.localPosition.z - (minPos + 2) <=0)
-                {
-                    transform.Translate(0,0, + backSpeed * Time.deltaTime * 5);
-
-                }else
-                {
-                    canMove = false;
-                    //canRotate = true;
-                    setPos = false;
-                    //t = 0;
-                }
-             
-            }
+            collider.enabled = false;
+            other.transform.parent = null;
+            force *= t;
+            body.AddRelativeForce(Vector3.forward * force, ForceMode.Impulse);
         }
-
-      
-     }
-       void OnCollisionEnter(Collision other) {
-            if(other.transform.CompareTag("Branca"))
-            {
-                collider.enabled = false;
-                Debug.Log("body");
-                transform.parent = null;
-                force *= t;
-                body = other.transform.GetComponent<Rigidbody>();
-                body.AddRelativeForce(Vector3.forward * force, ForceMode.Impulse);
-            }
-            
-        }
+    }
     
 
-        private void ResetTaco()
-        {
+    private void ResetTaco()
+    {
+      
+        rotateOrigin.position = WhiteBall.position;
+        body.isKinematic = true;
+        WhiteBall.parent = rotateOrigin;
+        body.velocity = Vector3.zero;
+        body.angularVelocity = Vector3.zero;
 
-        }
+        force = initialForce;
+        t = 0;
+
+        transform.localPosition = new Vector3(0,0,minPos);
+        WhiteBall.localRotation = Quaternion.Euler(0, 0, 0);
+        canRotate = true;
+        canMove = true;
+        collider.enabled = true;
+        
+        StartCoroutine(voltar());
+       
+        
+    }
+
+    IEnumerator voltar()
+    {
+        yield return new WaitForSeconds(0.5f);
+       
+        body.isKinematic = false;
+    }
      
  }
 
