@@ -1124,6 +1124,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2358839391786973335, guid: 83a50e18d23c2cf4183a0939a303d925, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5626313666427113191, guid: 83a50e18d23c2cf4183a0939a303d925, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1851,6 +1855,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2036619433864529186, guid: 83a50e18d23c2cf4183a0939a303d925, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5631109357998786896, guid: 83a50e18d23c2cf4183a0939a303d925, type: 3}
       propertyPath: m_Name
       value: Sphere (10)
@@ -1905,7 +1913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8594523764357556205, guid: 83a50e18d23c2cf4183a0939a303d925, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83a50e18d23c2cf4183a0939a303d925, type: 3}
