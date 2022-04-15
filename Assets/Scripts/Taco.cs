@@ -24,7 +24,7 @@ public class Taco : MonoBehaviour
     private const float DOTSPEED = 0.02f;
     public LineRenderer Path;
     public Gradient rayColor;
-    public Gradient rayTransparent; //É mais fácil isso ser público do que fazer 500 linhas definindo gradiente no código
+    public Gradient rayTransparent; //ï¿½ mais fï¿½cil isso ser pï¿½blico do que fazer 500 linhas definindo gradiente no cï¿½digo
     public Material dotMaterial;
     Vector3[] pathPos = new Vector3[2];
     Vector2 dotDistance = Vector2.one;
@@ -151,6 +151,9 @@ public class Taco : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.transform.CompareTag("Branca"))
         {
+            RigidbodyConstraints constraints;
+            constraints = RigidbodyConstraints.FreezePositionY;
+            body.constraints = constraints;
             collider.enabled = false;
             other.transform.parent = null;
             force *= t;
@@ -167,7 +170,9 @@ public class Taco : MonoBehaviour
         WhiteBall.parent = rotateOrigin;
         body.velocity = Vector3.zero;
         body.angularVelocity = Vector3.zero;
-
+        RigidbodyConstraints constraints;
+        constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        body.constraints = constraints;
         force = initialForce;
         t = 0;
 
@@ -184,6 +189,8 @@ public class Taco : MonoBehaviour
 
     public void ResetWhite()
     {
+        body.velocity = Vector3.zero;
+        body.angularVelocity = Vector3.zero;
         WhiteBall.position = _intialPos;
         ResetTaco();
     }

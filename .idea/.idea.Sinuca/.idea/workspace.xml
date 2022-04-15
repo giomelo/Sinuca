@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea1d06f3-03c1-4c65-89b6-7a991fa9ff1a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Hole.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Hole.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Sinuca/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Sinuca/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ball.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ball.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Material/Ball.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Material/Ball.physicMaterial" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rotate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rotate.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Taco.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Taco.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hole.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Hole.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Taco.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Taco.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1649674539087</updated>
       <workItem from="1649674564663" duration="2636000" />
+      <workItem from="1650025772002" duration="779000" />
     </task>
     <servers />
   </component>
