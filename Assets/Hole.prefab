@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1487991661964884482}
   - component: {fileID: 1487991661964884483}
-  - component: {fileID: 916609086066483172}
+  - component: {fileID: 2015287470680929918}
   m_Layer: 0
   m_Name: Hole
   m_TagString: Untagged
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5103e7de414241948fdcabfb6154b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &916609086066483172
-BoxCollider:
+--- !u!135 &2015287470680929918
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -56,5 +56,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

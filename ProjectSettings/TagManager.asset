@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Branca
   - Ball
+  - Taco
   layers:
   - Default
   - TransparentFX

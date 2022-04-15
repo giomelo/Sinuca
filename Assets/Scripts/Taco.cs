@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Taco : MonoBehaviour
 {
+    //Luz e particulas
+    public Light BallLight;
+    public ParticleSystem ForceParticles;
+    
     private float rotateSpeed = 30f;
     private float minPos, maxPos;
     private float posVariation = 4f;
@@ -55,8 +60,11 @@ public class Taco : MonoBehaviour
     void Update ()
     {
         CheckifBallStoped();
-         
-         
+        
+        
+        //Muda Luz e particula
+        BallLight.intensity = t * 10;
+        
          if(canRotate)
          {
             var moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
@@ -79,16 +87,19 @@ public class Taco : MonoBehaviour
          if(Input.GetMouseButton(0) && canMove)
          {
              isHolding = true;
-             canRotate = false;
+             //canRotate = false;
+             
          }else
          {
              isHolding = false;
+             
          }
         
 
          //mover taco
          if(isHolding)
          {
+             
              if(!setPos)
              {
                  //minPos = transform.localPosition.z;
@@ -106,6 +117,7 @@ public class Taco : MonoBehaviour
             
          }else
          {
+             
              if(setPos)
              {
                  if(transform.localPosition.z - (minPos + 2) <=0)
@@ -158,6 +170,7 @@ public class Taco : MonoBehaviour
             other.transform.parent = null;
             force *= t;
             body.AddRelativeForce(Vector3.forward * force, ForceMode.Impulse);
+            t = 0;
         }
     }
     
@@ -175,6 +188,7 @@ public class Taco : MonoBehaviour
         body.constraints = constraints;
         force = initialForce;
         t = 0;
+        
 
         transform.localPosition = new Vector3(0,0,minPos);
         WhiteBall.localRotation = Quaternion.Euler(0, 0, 0);
