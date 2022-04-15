@@ -21,6 +21,15 @@ public class Taco : MonoBehaviour
 
     public Transform WhiteBall;
 
+    private const float DOTSPEED = 0.02f;
+    public LineRenderer Path;
+    public Gradient rayColor;
+    public Gradient rayTransparent; //É mais fácil isso ser público do que fazer 500 linhas definindo gradiente no código
+    public Material dotMaterial;
+    Vector3[] pathPos = new Vector3[2];
+    Vector2 dotDistance = Vector2.one;
+    Vector2 dotCrawl = Vector2.zero;
+
     private Vector3 _intialPos;
     // Start is called before the first frame update
     private void Start()
@@ -113,6 +122,30 @@ public class Taco : MonoBehaviour
              }
          }
 
+    }
+
+    private void FixedUpdate()
+    {
+        if (canMove)
+        {
+            Path.colorGradient = rayColor;
+            RaycastHit hit;
+            Ray rayDistance = new Ray(WhiteBall.position, gameObject.transform.forward);
+            if (Physics.Raycast(rayDistance, out hit))
+            {
+                dotDistance.x = hit.distance;
+                dotCrawl.x -= DOTSPEED;
+                dotMaterial.mainTextureScale = dotDistance;
+                dotMaterial.mainTextureOffset = dotCrawl;
+                pathPos[0] = WhiteBall.position;
+                pathPos[1] = hit.point;
+                Path.SetPositions(pathPos);
+            }
+        }
+        else
+        {
+            Path.colorGradient = rayTransparent;
+        }
     }
 
     private void OnCollisionEnter(Collision other) {
