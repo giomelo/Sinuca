@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ea1d06f3-03c1-4c65-89b6-7a991fa9ff1a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Sinuca/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Sinuca/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audios.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audios.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +66,7 @@
       <workItem from="1650025772002" duration="779000" />
       <workItem from="1650042567804" duration="7205000" />
       <workItem from="1650195340576" duration="616000" />
+      <workItem from="1650322979076" duration="5352000" />
     </task>
     <servers />
   </component>

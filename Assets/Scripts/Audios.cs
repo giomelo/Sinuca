@@ -12,20 +12,16 @@ public class Audios : MonoBehaviour
     public AudioClip[] audiosBolas;
     public AudioClip[] audiosBuraco;
     public AudioSource audio;
+
     
 
     private int random;
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     private void OnCollisionEnter(Collision collision)
     {

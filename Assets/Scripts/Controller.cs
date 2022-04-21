@@ -16,6 +16,7 @@ public class Controller : MonoBehaviour
     private int amountOfBalls = 15;
 
     private int currentAmountOfBalls = 0;
+    public AudioSource music;
     [SerializeField]
     private GameObject winScreen;
 
@@ -26,6 +27,7 @@ public class Controller : MonoBehaviour
 
     private void Start()
     {
+        //music.Play();
         score.text = Score.ToString();
         currentAmountOfBalls = 0;
         amountOfBalls = 0;
